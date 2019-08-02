@@ -1,0 +1,91 @@
+<ion-app>
+  <ion-split-pane>
+    <ion-menu side="end">
+      <ion-content>
+        <div class="user-status">
+          <img src="assets/svg/logo.svg" alt="" class="logo-menu">
+        </div>
+        <ion-list>
+          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
+            <ion-item lines="none" [routerDirection]="'root'" [routerLink]="[p.url]">
+              <ion-icon slot="start" [name]="p.icon"></ion-icon>
+              <ion-label>
+                {{p.title}}
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+        <ion-item lines="none" class="social-icons">
+          <ion-label>
+            <h3>Síguenos</h3>
+            <a href="https://www.facebook.com/TXSRadio/" target="_blank"><img src="../assets/icons/facebook-logo.svg"
+                alt="" width="30"></a>
+            <a href="https://www.instagram.com/txs_radio/" target="_blank"><img src="../assets/icons/instagram-logo.svg"
+                alt="" width="30"></a>
+            <a href="https://twitter.com/txsradio" target="_blank"><img src="../assets/icons/twitter-logo.svg" alt=""
+                width="30"></a>
+            <a href="https://cl.linkedin.com/company/txs-radio" target="_blank"><img
+                src="../assets/icons/linkedin-logo.svg" alt="" width="30"></a>
+          </ion-label>
+        </ion-item>
+      </ion-content>
+    </ion-menu>
+    <ion-router-outlet main>
+      <div id="player" *ngIf="streamType !== 'video'" >
+        <div id="progress-bar" *ngIf="streamType !== 'radio' && playerStatus !== 'Detenido'">
+          <ion-range 
+            min="1"
+            max="100"
+            [(ngModel)]="currentTime"
+            (mousedown)="seekStart($event)"
+            (touchstart)="seekStart($event)"
+            (mouseup)="seekEnd($event)" 
+            (touchend)="seekEnd($event)">
+          </ion-range>
+        </div>
+        <div id="action-button">
+          <ion-icon 
+            class="playerBtnSingle"
+            name="play"
+            (click)="play('http://sonando-us.digitalproserver.com/txsradio.aac', 'radio', 'Ciencia y tecnología', '0', 'TXS Radio', 'assets/imgs/logo.png')"
+            *ngIf="playerStatus === 'Detenido' || playerStatus === 'Paused'">
+          </ion-icon>
+          <ion-icon 
+            class="playerBtnSingle rotate" 
+            name="refresh" 
+            *ngIf="playerStatus === 'Cargando'">
+          </ion-icon>
+          <ion-icon
+            class="playerBtnSingle"
+            name="pause"
+            (click)="pause()"
+            *ngIf="playerStatus === 'Live'">
+          </ion-icon>
+        </div>
+        <div id="descripcion">
+          <div class="title">{{currentProg}}</div>
+          <div class="desc">{{currentTrack}}</div>
+        </div>
+        <div *ngIf="streamType !== 'radio' || playerStatus === 'Detenido'" id="secondary-buttons"
+          (click)="play('http://sonando-us.digitalproserver.com/txsradio.aac', 'radio', 'Ciencia y tecnología', '0', 'TXS Radio', 'assets/imgs/logo.png')">
+          <div class="status">
+            ESCUCHAR<br>EN VIVO
+          </div>
+        </div>
+        <div *ngIf="streamType === 'radio' && playerStatus === 'Cargando'" id="secondary-buttons" class="loading"
+          (click)="stop()">
+          <div class="status">
+            <ion-icon name="refresh"></ion-icon><br>CARGANDO
+          </div>
+        </div>
+        <div *ngIf="streamType === 'radio' && playerStatus === 'Live'" id="secondary-buttons" class="live"
+          (click)="stop()">
+          <div class="status">
+            SONANDO<br>EN VIVO
+          </div>
+        </div>
+      </div>
+    </ion-router-outlet>
+  </ion-split-pane>
+
+</ion-app>

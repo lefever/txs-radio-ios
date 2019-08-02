@@ -1,0 +1,65 @@
+<ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="end">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Nuevo usuario</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content padding>
+  <p text-center>Para poder usar el chat en la página principal es necesario registrarse.</p>
+  <form [formGroup]="user" (ngSubmit)="createUser()">
+    <ion-list>
+      <ion-item>
+        <ion-label position="floating">Nombre *</ion-label>
+        <ion-input type="text" formControlName="fullName"></ion-input>
+      </ion-item>
+      <ion-item class="form-error-list" *ngIf="!user.controls.fullName.pristine && !user.controls.fullName.valid">
+        <p class="form-error" item-right *ngIf="!user.controls.fullName.pristine && user.controls.fullName.hasError('required')">
+          Debes ingresar tu nombre.
+        </p>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Email *</ion-label>
+        <ion-input #email type="email" formControlName="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"></ion-input>
+      </ion-item>
+      <ion-item class="form-error-list" *ngIf="!user.controls.email.pristine && !user.controls.email.valid">
+        <p class="form-error" item-right *ngIf="!user.controls.email.pristine && user.controls.email.hasError('required')">
+          Debes ingresar tu email.
+        </p>
+        <p class="form-error" item-right *ngIf="!user.controls.email.pristine && !user.controls.email.valid">
+          El email es incorrecto.
+        </p>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Contraseña *</ion-label>
+        <ion-input #password type="password" formControlName="password"></ion-input>
+      </ion-item>
+      <ion-item class="form-error-list" *ngIf="!user.controls.password.pristine && !user.controls.password.valid">
+        <p class="form-error" item-right *ngIf="!user.controls.password.pristine && user.controls.password.hasError('required')">
+          Debes ingresar una contraseña.
+        </p>
+        <p class="form-error" item-right *ngIf="!user.controls.password.pristine && user.controls.password?.errors?.minlength">
+          La contraseña debe tener 5 o más caracteres.
+        </p>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Confirmar contraseña *</ion-label>
+        <ion-input type="password" formControlName="passwordConfirmation"></ion-input>
+      </ion-item>
+      <ion-item class="form-error-list" *ngIf="!user.controls.passwordConfirmation.pristine && !user.controls.passwordConfirmation.valid">
+        <p class="form-error" item-right *ngIf="!user.controls.passwordConfirmation.pristine && user.controls.passwordConfirmation.hasError('required')">
+          Debes ingresar nuevamente tu contraseña.
+        </p>
+        <p class="form-error" item-right *ngIf="!user.controls.passwordConfirmation.pristine && user.controls.passwordConfirmation?.errors?.minlength">
+          La contraseña debe tener 5 o más caracteres.
+        </p>
+      </ion-item>
+    </ion-list>
+    <ion-button type="submit" expand="full" color="primary" [disabled]="!user.valid">Registrarme</ion-button>
+  </form>
+</ion-content>

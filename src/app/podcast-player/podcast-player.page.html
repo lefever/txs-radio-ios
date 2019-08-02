@@ -1,0 +1,123 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Podcast</ion-title>
+    <ion-buttons slot="start">
+      <ion-button [routerLink]="'/podcast'" routerDirection="backward">
+        <ion-icon name="arrow-round-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-img *ngIf="!progImage" src="../../assets/imgs/covers/placeholder.jpg"></ion-img>
+  <ion-img *ngIf="progImage" [src]="progImage"></ion-img>
+  <ion-list *ngIf="!podcastList">
+    <ion-item>
+      <ion-avatar slot="start">
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </ion-avatar>
+      <ion-label>
+        <h3>
+          <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+        </h3>
+        <p>
+          <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+        </p>
+        <p>
+          <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+        </p>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-avatar slot="start">
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </ion-avatar>
+      <ion-label>
+        <h3>
+          <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+        </h3>
+        <p>
+          <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+        </p>
+        <p>
+          <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+        </p>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-avatar slot="start">
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </ion-avatar>
+      <ion-label>
+        <h3>
+          <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+        </h3>
+        <p>
+          <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+        </p>
+        <p>
+          <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+        </p>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-avatar slot="start">
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </ion-avatar>
+      <ion-label>
+        <h3>
+          <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+        </h3>
+        <p>
+          <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+        </p>
+        <p>
+          <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+        </p>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-avatar slot="start">
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </ion-avatar>
+      <ion-label>
+        <h3>
+          <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+        </h3>
+        <p>
+          <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+        </p>
+        <p>
+          <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+        </p>
+      </ion-label>
+    </ion-item>
+
+  </ion-list>
+
+  <ion-list *ngIf="podcastList">
+    <ion-item class="podcastItem" lines="full" *ngFor="let podcast of podcastList">
+      <ion-icon (click)="play(podcast.audio, 'podcast', podcast.descripcion, podcast.id, progTitle, progImage)"
+        name="play" class="playerBtnSingle" item-left
+        *ngIf="playerStatus === 'Detenido' || currentId !== podcast.id || streamType !== 'podcast' || playerStatus === 'Paused'"></ion-icon>
+      <ion-icon name="refresh" class="rotate playerBtnSingle" item-left
+        *ngIf="currentId === podcast.id && playerStatus === 'Cargando'"></ion-icon>
+        <ion-icon (click)="stop()" name="square" class="playerBtnSingle" item-left
+        *ngIf="playerStatus === 'Live' && !paused && currentId === podcast.id && streamType === 'podcast'"></ion-icon>
+      <ion-label>
+        <h3><strong>{{podcast._Titulo}}</strong></h3>
+        <p class="desc">{{podcast.descripcion}}</p>
+        <p class="invitados" *ngIf="podcast.invitados">Invitados: {{podcast.invitados}}</p>
+        <p class="fecha">
+          <ion-icon *ngIf="podcast !== 'undefined'" name="browsers" class="iconCalendar"></ion-icon>
+          {{podcast.fecha.seconds *1000 | date: 'dd/MM/yyyy'}}
+        </p>
+      </ion-label>
+      <ion-icon name="more" (click)="presentActionSheet(podcast.audio, 'podcast', podcast.descripcion, podcast.id, progTitle, progImage)"></ion-icon>
+    </ion-item>
+  </ion-list>
+</ion-content>

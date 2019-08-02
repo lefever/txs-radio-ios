@@ -1,0 +1,140 @@
+@media screen and (orientation:portrait) {
+    #videoWrapper {
+        padding-top: 56%;
+        position: relative;
+
+        #vrudo {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+        }
+    }
+}
+
+@media screen and (orientation:landscape) {
+    #videoWrapper {
+        position: relative;
+        height: 100%;
+
+        #vrudo {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+        }
+    }
+}
+
+img.profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.item-lines-full {
+    --border-width: 0 0 1px 0;
+    --border-color: rgba(0, 0, 0, 0.1)
+}
+
+.item-highlight {
+    display: none !important;
+    left: auto;
+}
+
+.message-wrapper {
+    overflow: hidden;
+    position: relative;
+
+    ion-avatar {
+        top: 3px;
+        position: absolute;
+        left: 10px;
+        border: 1px solid rgba(0, 0, 0, 0.3);
+    }
+
+    ion-item {
+        border-bottom: none;
+        font-size: 14px;
+    }
+
+    ion-label {
+        padding-left: 45px;
+    }
+
+    h3.bold {
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    .time {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 11px;
+    }
+
+    .own {
+        background-color: #2f2f2f;
+    }
+
+    // .own {
+    //   ion-label {
+    //     padding-left: 0px;
+    //     padding-right: 45px;
+    //   }
+    //   ion-avatar {
+    //     top: 10px;
+    //     position: absolute;
+    //     right: 5px;
+    //     left: auto;
+    //   }
+    //   .time {
+    //     left: 10px;
+    //     right: auto;
+    //   }
+    // }
+}
+
+.message-form {
+    background-color: #151515;
+    padding: 6px 8px;
+    position: relative;
+    border-bottom: solid 2px #2f2f2f;
+
+    .sendBtn {
+        font-size: 30px;
+    }
+
+    ion-button {
+        --box-shadow: none;
+    }
+
+    .input-container {
+        --padding-start: 0px;
+        --background-color: #151515;
+        overflow: hidden;
+        border-radius: 30px;
+
+        .button-native {
+            box-shadow: none;
+        }
+    }
+
+    ion-item {
+        --inner-padding-end: 0px;
+        --border-width: 0px;
+    }
+
+    ion-button .button-native {
+        background-color: transparent;
+        box-shadow: none;
+    }
+
+    ion-input {
+        color: black;
+        background-color: white;
+        border-radius: 30px;
+        --padding-start: 15px;
+    }
+}

@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Playlist</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  
+  <div padding *ngIf="queuedTracks === null">
+    <h4 text-center>No hay tracks en tu playlist. Añade desde la sección Podcast o Cápsulas</h4>
+  </div>
+  
+  <ion-list *ngIf="queuedTracks">
+    <ion-item class="playlistItem" lines="full" *ngFor="let track of queuedTracks">
+        <ion-icon (click)="play(track.url, track.type, track.info, track.id, track.prog, track.thumb)"
+        name="play" class="playerBtnSingle" item-left
+        *ngIf="playerStatus === 'Detenido' || currentId !== track.id || playerStatus === 'Paused'"></ion-icon>
+      <ion-icon name="refresh" class="rotate playerBtnSingle" item-left
+        *ngIf="currentId === track.id && playerStatus === 'Cargando'"></ion-icon>
+        <ion-icon (click)="stop()" name="square" class="playerBtnSingle" item-left
+        *ngIf="playerStatus === 'Live' && !paused && currentId === track.id"></ion-icon>
+      <ion-label>
+        <h3>{{track.info}}</h3>
+        <p class=desc>{{track.prog}}</p>
+        <p>{{track.length}}</p>
+      </ion-label>
+      <ion-icon name="more" (click)="presentActionSheet(track.url, track.type, track.info, track.id, track.prog, track.thumb)"></ion-icon>
+    </ion-item>
+  </ion-list>
+</ion-content>

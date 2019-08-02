@@ -1,0 +1,115 @@
+// http://ionicframework.com/docs/theming/
+@import '~@ionic/angular/css/core.css';
+@import '~@ionic/angular/css/normalize.css';
+@import '~@ionic/angular/css/structure.css';
+@import '~@ionic/angular/css/typography.css';
+@import '~@ionic/angular/css/display.css';
+@import '~@ionic/angular/css/padding.css';
+@import '~@ionic/angular/css/float-elements.css';
+@import '~@ionic/angular/css/text-alignment.css';
+@import '~@ionic/angular/css/text-transformation.css';
+@import '~@ionic/angular/css/flex-utils.css';
+
+ion-range {
+    --knob-size: 20px;
+    --bar-height: 5px;
+    --height: 5px; //Height of the range
+    --knob-background: red; //Background of the range knob
+    position: absolute;
+    top: -3px;
+    left: 0px;
+    width: 100%;
+    padding: 0px;
+}
+
+.alert-title {
+    color: #151515 !important;
+}
+
+app-home ion-toolbar {
+    color: #151515;
+    background-image: url(./assets/svg/logo.svg);
+    background-size: 115px;
+    background-position: center 6px;
+    background-repeat: no-repeat;
+    background-color: #FFF;
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.07);
+    --min-height: 76px;
+}
+
+ion-card {
+    margin-bottom: 30px !important;
+}
+
+.ion-page {
+    padding-bottom: 67px;
+}
+
+app-video.ion-page {
+    padding-bottom: 0px;
+}
+
+.logo {
+    max-width: 50%;
+    display: block;
+    margin: auto;
+}
+
+.logo-menu {
+    max-width: 50%;
+    display: block;
+    margin: 20px auto;
+}
+
+input.alert-input.sc-ion-alert-md {
+    color: black;
+}
+
+.item-highlight {
+    display: none !important;
+}
+
+.rotate {
+    animation: rotary 1s 0s infinite;
+    animation-timing-function: linear;
+}
+
+.social-icons {
+    position: absolute;
+    bottom: 0;
+
+    h3 {
+        margin-bottom: 15px;
+    }
+
+    img {
+        margin: 0px 15px 0px 0px;
+        width: 25px;
+    }
+}
+
+@keyframes rotary {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.playerBtnSingle {
+    padding: 10px;
+    border-radius: 50%;
+    background-color: red;
+    font-size: 20px;
+}
+
+
+@media screen and (orientation:landscape) {
+    .logo-menu {
+        max-width: 100px;
+        display: block;
+        margin: 17px auto 7px;
+    }
+}

@@ -1,0 +1,229 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Podcast</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item lines="none" [routerLink]="['/podcast-player', 'helloworld']" routerDirection="forward">
+      <ion-thumbnail slot="start">
+        <img src="../../assets/imgs/covers/helloworld.jpg">
+      </ion-thumbnail>
+      <ion-label>Hello World</ion-label>
+    </ion-item>
+    <ion-slides [options]="slideOpts">
+      <ion-slide *ngFor="let item of latestHelloWorld">
+        <div class="cover">
+          <img src="../../assets/svg/play-cover.svg" alt="">
+          <ion-icon
+          (click)="play(item.audio, 'podcast', item.descripcion, item.id, 'Hello World', 'assets/imgs/covers/txstopic.jpg')"
+          name="play" class="playerBtnSingle" item-left
+          *ngIf="playerStatus === 'Detenido' || currentId !== item.id || streamType !== 'podcast' || playerStatus === 'Paused'"></ion-icon>
+          <ion-icon name="refresh" class="rotate playerBtnSingle" item-left
+            *ngIf="currentId === item.id && playerStatus === 'Cargando'"></ion-icon>
+          <ion-icon (click)="stop()" name="square" class="playerBtnSingle" item-left
+            *ngIf="playerStatus === 'Live' && !paused && currentId === item.id && streamType === 'podcast'"></ion-icon>
+        </div>
+        
+        <p class="title"><strong>{{item._Titulo}}</strong></p>
+        <p class="title">{{item.descripcion}}</p>
+      </ion-slide>
+      <ion-slide>
+        <div class="cover">
+          <img src="../../assets/svg/todos-cover.svg" alt="" [routerLink]="['/podcast-player', 'helloworld']"
+            routerDirection="forward">
+        </div>
+      </ion-slide>
+    </ion-slides>
+
+    <ion-item lines="none" [routerLink]="['/podcast-player', 'txstopic']" routerDirection="forward">
+      <ion-thumbnail slot="start">
+        <img src="../../assets/imgs/covers/txstopic.jpg">
+      </ion-thumbnail>
+      <ion-label>TXS Topic</ion-label>
+    </ion-item>
+    <ion-slides [options]="slideOpts">
+      <ion-slide *ngFor="let item of latestTxsTopic">
+        <div class="cover">
+          <img src="../../assets/svg/play-cover.svg" alt="">
+          <ion-icon
+            (click)="play(item.audio, 'podcast', item.descripcion, item.id, 'TXS Topic', 'assets/imgs/covers/txstopic.jpg')"
+            name="play" class="playerBtnSingle" item-left
+            *ngIf="playerStatus === 'Detenido' || currentId !== item.id || streamType !== 'podcast' || playerStatus === 'Paused'"></ion-icon>
+          <ion-icon name="refresh" class="rotate playerBtnSingle" item-left
+            *ngIf="currentId === item.id && playerStatus === 'Cargando'"></ion-icon>
+          <ion-icon (click)="stop()" name="square" class="playerBtnSingle" item-left
+            *ngIf="playerStatus === 'Live' && !paused && currentId === item.id && streamType === 'podcast'"></ion-icon>
+        </div>
+        
+        <p class="title"><strong>{{item._Titulo}}</strong></p>
+        <p class="title">{{item.descripcion}}</p>
+      </ion-slide>
+      <ion-slide>
+        <div class="cover">
+          <img src="../../assets/svg/todos-cover.svg" alt="" [routerLink]="['/podcast-player', 'txstopic']"
+            routerDirection="forward">
+        </div>
+      </ion-slide>
+    </ion-slides>
+
+    <ion-item lines="none" [routerLink]="['/podcast-player', 'rockstars']" routerDirection="forward">
+      <ion-thumbnail slot="start">
+        <img src="../../assets/imgs/covers/rockstars.jpg">
+      </ion-thumbnail>
+      <ion-label>Rockstars</ion-label>
+    </ion-item>
+    <ion-slides [options]="slideOpts">
+      <ion-slide *ngFor="let item of latestRockstars">
+        <div class="cover">
+          <img src="../../assets/svg/play-cover.svg" alt="">
+          <ion-icon
+            (click)="play(item.audio, 'podcast', item.descripcion, item.id, 'Rockstars', 'assets/imgs/covers/rockstars.jpg')"
+            name="play" class="playerBtnSingle" item-left
+            *ngIf="playerStatus === 'Detenido' || currentId !== item.id || streamType !== 'podcast'"></ion-icon>
+          <ion-icon name="refresh" class="rotate playerBtnSingle" item-left
+            *ngIf="currentId === item.id && playerStatus === 'Cargando'"></ion-icon>
+          <ion-icon (click)="stop()" name="square" class="playerBtnSingle" item-left
+            *ngIf="playerStatus === 'Live' && !paused && currentId === item.id && streamType === 'podcast'"></ion-icon>
+        </div>
+        
+        <p class="title"><strong>{{item._Titulo}}</strong></p>
+        <p class="title">{{item.descripcion}}</p>
+      </ion-slide>
+      <ion-slide>
+        <div class="cover">
+          <img src="../../assets/svg/todos-cover.svg" alt="" [routerLink]="['/podcast-player', 'rockstars']"
+            routerDirection="forward">
+        </div>
+      </ion-slide>
+    </ion-slides>
+
+    <ion-item lines="none" [routerLink]="['/podcast-player', 'cienciaimposible']" routerDirection="forward">
+      <ion-thumbnail slot="start">
+        <img src="../../assets/imgs/covers/cienciaimposible.jpg">
+      </ion-thumbnail>
+      <ion-label>Ciencia Imposible</ion-label>
+    </ion-item>
+    <ion-slides [options]="slideOpts">
+      <ion-slide *ngFor="let item of latestCienciaImposible">
+        <div class="cover">
+          <img src="../../assets/svg/play-cover.svg" alt="">
+          <ion-icon
+            (click)="play(item.audio, 'podcast', item.descripcion, item.id, 'Ciencia Imposible', 'assets/imgs/covers/cienciaimposible.jpg')"
+            name="play" class="playerBtnSingle" item-left
+            *ngIf="playerStatus === 'Detenido' || currentId !== item.id || streamType !== 'podcast'"></ion-icon>
+          <ion-icon name="refresh" class="rotate playerBtnSingle" item-left
+            *ngIf="currentId === item.id && playerStatus === 'Cargando'"></ion-icon>
+          <ion-icon (click)="stop()" name="square" class="playerBtnSingle" item-left
+            *ngIf="playerStatus === 'Live' && !paused && currentId === item.id && streamType === 'podcast'"></ion-icon>
+        </div>
+        
+        <p class="title"><strong>{{item._Titulo}}</strong></p>
+        <p class="title">{{item.descripcion}}</p>
+      </ion-slide>
+      <ion-slide>
+        <div class="cover">
+          <img src="../../assets/svg/todos-cover.svg" alt="" [routerLink]="['/podcast-player', 'cienciaimposible']"
+            routerDirection="forward">
+        </div>
+      </ion-slide>
+    </ion-slides>
+
+    <ion-item lines="none" [routerLink]="['/podcast-player', 'cronicascientificas']" routerDirection="forward">
+      <ion-thumbnail slot="start">
+        <img src="../../assets/imgs/covers/cronicascientificas.jpg">
+      </ion-thumbnail>
+      <ion-label>Crónicas Científicas</ion-label>
+    </ion-item>
+    <ion-slides [options]="slideOpts">
+      <ion-slide *ngFor="let item of latestCronicasCientificas">
+        <div class="cover">
+          <img src="../../assets/svg/play-cover.svg" alt="">
+          <ion-icon
+            (click)="play(item.audio, 'podcast', item.descripcion, item.id, 'Crónicas Científicas', 'assets/imgs/covers/cronicascientificas.jpg')"
+            name="play" class="playerBtnSingle" item-left
+            *ngIf="playerStatus === 'Detenido' || currentId !== item.id || streamType !== 'podcast'"></ion-icon>
+          <ion-icon name="refresh" class="rotate playerBtnSingle" item-left
+            *ngIf="currentId === item.id && playerStatus === 'Cargando'"></ion-icon>
+          <ion-icon (click)="stop()" name="square" class="playerBtnSingle" item-left
+            *ngIf="playerStatus === 'Live' && !paused && currentId === item.id && streamType === 'podcast'"></ion-icon>
+        </div>
+        
+        <p class="title"><strong>{{item._Titulo}}</strong></p>
+        <p class="title">{{item.descripcion}}</p>
+      </ion-slide>
+      <ion-slide>
+        <div class="cover">
+          <img src="../../assets/svg/todos-cover.svg" alt="" [routerLink]="['/podcast-player', 'cronicascientificas']"
+            routerDirection="forward">
+        </div>
+      </ion-slide>
+    </ion-slides>
+
+    <ion-item lines="none" [routerLink]="['/podcast-player', 'saladesituaciones']" routerDirection="forward">
+      <ion-thumbnail slot="start">
+        <img src="../../assets/imgs/covers/saladesituaciones.jpg">
+      </ion-thumbnail>
+      <ion-label>Sala de situaciones</ion-label>
+    </ion-item>
+    <ion-slides [options]="slideOpts">
+      <ion-slide *ngFor="let item of latestSalaDeSituaciones">
+        <div class="cover">
+          <img src="../../assets/svg/play-cover.svg" alt="">
+          <ion-icon
+            (click)="play(item.audio, 'podcast', item.descripcion, item.id, 'Sala de situaciones', 'assets/imgs/covers/saladesituaciones.jpg')"
+            name="play" class="playerBtnSingle" item-left
+            *ngIf="playerStatus === 'Detenido' || currentId !== item.id || streamType !== 'podcast'"></ion-icon>
+          <ion-icon name="refresh" class="rotate playerBtnSingle" item-left
+            *ngIf="currentId === item.id && playerStatus === 'Cargando'"></ion-icon>
+          <ion-icon (click)="stop()" name="square" class="playerBtnSingle" item-left
+            *ngIf="playerStatus === 'Live' && !paused && currentId === item.id && streamType === 'podcast'"></ion-icon>
+        </div>
+        
+        <p class="title"><strong>{{item._Titulo}}</strong></p>
+        <p class="title">{{item.descripcion}}</p>
+      </ion-slide>
+      <ion-slide>
+        <div class="cover">
+          <img src="../../assets/svg/todos-cover.svg" alt="" [routerLink]="['/podcast-player', 'saladesituaciones']"
+            routerDirection="forward">
+        </div>
+      </ion-slide>
+    </ion-slides>
+
+    <ion-item lines="none" [routerLink]="['/podcast-player', 'nuevasestrellas']" routerDirection="forward">
+      <ion-thumbnail slot="start">
+        <img src="../../assets/imgs/covers/nuevasestrellas.jpg">
+      </ion-thumbnail>
+      <ion-label>Nuevas Estrellas</ion-label>
+    </ion-item>
+    <ion-slides [options]="slideOpts">
+      <ion-slide *ngFor="let item of latestNuevasEstrellas">
+        <div class="cover">
+          <img src="../../assets/svg/play-cover.svg" alt="">
+          <ion-icon
+            (click)="play(item.audio, 'podcast', item.descripcion, item.id, 'Nuevas Estrellas', 'assets/imgs/covers/nuevasestrellas.jpg')"
+            name="play" class="playerBtnSingle" item-left
+            *ngIf="playerStatus === 'Detenido' || currentId !== item.id || streamType !== 'podcast'"></ion-icon>
+          <ion-icon name="refresh" class="rotate playerBtnSingle" item-left
+            *ngIf="currentId === item.id && playerStatus === 'Cargando'"></ion-icon>
+          <ion-icon (click)="stop()" name="square" class="playerBtnSingle" item-left
+            *ngIf="playerStatus === 'Live' && !paused && currentId === item.id && streamType === 'podcast'"></ion-icon>
+        </div>
+        
+        <p class="title"><strong>{{item._Titulo}}</strong></p>
+        <p class="title">{{item.descripcion}}</p>
+      </ion-slide>
+      <ion-slide>
+        <div class="cover">
+          <img src="../../assets/svg/todos-cover.svg" alt="" [routerLink]="['/podcast-player', 'nuevasestrellas']"
+            routerDirection="forward">
+        </div>
+      </ion-slide>
+    </ion-slides>
+  </ion-list>
+</ion-content>

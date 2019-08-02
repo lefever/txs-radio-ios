@@ -1,0 +1,176 @@
+<ion-header>
+  <ion-toolbar color="medium">
+    <!-- <ion-buttons slot="start">
+      <img src="../../assets/icons/tv.svg" width="35" class="tv-icon" alt="">
+    </ion-buttons> -->
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content style="position:relative">
+
+  <!-- <div id="radio-player">
+    <div id="action-button">
+      <ion-icon class="playerBtnSingle" name="play" (click)="play('http://sonando-us.digitalproserver.com/txsradio.aac', 'radio')" *ngIf="playerStatus === 'Detenido' || streamType !== 'radio'"></ion-icon>
+      <ion-icon class="playerBtnSingle rotate" name="refresh" *ngIf="playerStatus === 'Cargando' && streamType === 'radio'"></ion-icon>
+      <ion-icon class="playerBtnSingle" name="square" (click)="stop()" *ngIf="playerStatus === 'Live' && streamType === 'radio'"></ion-icon>
+    </div>
+    <div id="descripcion" *ngFor="let item of liveInfo | async">
+      <div class="title" *ngIf="item._Programa === 'Offline'" >TXS Radio</div>
+      <div class="title" *ngIf="item._Programa !== 'Offline'" >{{item._Programa}}</div>
+      <div class="desc" *ngIf="item._Programa === 'Offline'" >Ciencia y tecnología</div>
+      <div class="desc" *ngIf="item._Programa === 'Hello World'" >Felipe Ovalle</div>
+      <div class="desc" *ngIf="item._Programa === 'TXS Topic'" >Valeria Ortega</div>
+      <div class="desc" *ngIf="item._Programa === 'Hiperconectados'" >Cristián Chaparro</div>
+      <div class="desc" *ngIf="item._Programa === 'Rockstars'" >Gabriel León</div>
+      <div class="desc" *ngIf="item._Programa === 'Sala de situaciones'" >Jaime Coloma</div>
+    </div>
+    <div id="descripcion" *ngIf="!liveInfo" >
+      <div class="title">TXS Radio.com</div>
+      <div class="desc">Ciencia y tenología</div>
+    </div>
+    <div id="display">
+      <div class="status" *ngIf="streamType === 'radio'" >{{playerStatus}}</div>
+      <div class="status" *ngIf="streamType !== 'radio'" >Detenido</div>
+      <div class="container" *ngIf="streamType === 'radio'" >
+        <div class="equalizer {{playerStatus}}">
+          <i class="bar01 barsound"></i>
+          <i class="bar02 barsound"></i>
+          <i class="bar03 barsound"></i>
+          <i class="bar04 barsound"></i>
+          <i class="bar05 barsound"></i>
+          <i class="bar06 barsound"></i>
+          <i class="bar07 barsound"></i>
+          <i class="bar08 barsound"></i>
+          <i class="bar09 barsound"></i>
+        </div>
+      </div>
+      <div class="container" *ngIf="streamType !== 'radio'" >
+          <div class="equalizer">
+            <i class="bar01 barsound"></i>
+            <i class="bar02 barsound"></i>
+            <i class="bar03 barsound"></i>
+            <i class="bar04 barsound"></i>
+            <i class="bar05 barsound"></i>
+            <i class="bar06 barsound"></i>
+            <i class="bar07 barsound"></i>
+            <i class="bar08 barsound"></i>
+            <i class="bar09 barsound"></i>
+          </div>
+        </div>
+    </div>
+  </div> -->
+  <ion-list *ngIf="!messages" >
+    <ion-item>
+      <ion-avatar slot="start">
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </ion-avatar>
+      <ion-label>
+        <h3>
+          <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+        </h3>
+        <p>
+          <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+        </p>
+        <p>
+          <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+        </p>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-avatar slot="start">
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </ion-avatar>
+      <ion-label>
+        <h3>
+          <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+        </h3>
+        <p>
+          <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+        </p>
+        <p>
+          <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+        </p>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-avatar slot="start">
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </ion-avatar>
+      <ion-label>
+        <h3>
+          <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+        </h3>
+        <p>
+          <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+        </p>
+        <p>
+          <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+        </p>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-avatar slot="start">
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </ion-avatar>
+      <ion-label>
+        <h3>
+          <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+        </h3>
+        <p>
+          <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+        </p>
+        <p>
+          <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+        </p>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-avatar slot="start">
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </ion-avatar>
+      <ion-label>
+        <h3>
+          <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+        </h3>
+        <p>
+          <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+        </p>
+        <p>
+          <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+        </p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <div #msgContainer>
+    <div #msg class="message-wrapper" *ngFor="let message of messages | async">
+      <ion-item lines="full">
+        <ion-avatar slot="start">
+          <img [src]="message.avatar" />
+        </ion-avatar>
+        <ion-label>
+          <h3 class="bold">{{ message.fullName }}</h3>
+          <div class="message" text-wrap>{{ message.value }}</div>
+          <div class="time">{{ message.timestamp | date: 'HH:mm'}}</div>
+        </ion-label>
+      </ion-item>
+    </div>
+  </div>
+</ion-content>
+
+<form [formGroup]="chatControl" (ngSubmit)="sendMessage()">
+  <ion-footer class="message-footer" keyboard-attach>
+    <div class="message-form">
+      <ion-item lines="none" class="input-container">
+        <ion-input type="text" [(ngModel)]='message' formControlName="message" placeholder="Escribe un mensaje">
+        </ion-input>
+        <ion-button type="submit" color="medium" [disabled]="!chatControl.valid" item-right>
+          <ion-icon name="send" class="sendBtn"></ion-icon>
+        </ion-button>
+      </ion-item>
+    </div>
+  </ion-footer>
+</form>

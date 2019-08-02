@@ -1,0 +1,55 @@
+
+.capsulaItem {
+    --padding-start: 0;
+    --padding-end: 0;
+    border-bottom: 1px solid #e6e6e6;
+    .playPodBtn {
+        font-size: 20px;
+        color: white;
+        background-color: red;
+        border-radius: 50%;
+        padding: 10px;
+        margin: 0px 8px;
+    }
+    .iconCalendar {
+        position: relative;
+        top:2px;
+    }
+    .desc {
+        color: #151515;
+    }
+    .playerBtnSingle {
+        margin: 0px 8px;
+        color: white;
+        .icon-inner {
+            fill: white;
+        }
+    }
+}
+
+.down-icon {
+    position: relative;
+    top: 2px;
+}
+
+.download-link {
+    text-decoration: none;
+    background-color: lightgray;
+    font-size: 0.7rem;
+    padding: 3px 7px;
+    border-radius: 0px;
+    font-weight: bold;
+    display: inline-block;
+    border-radius: 8px;
+}
+
+.download-link {
+    text-decoration: none;
+    background-color: lightgray;
+    font-size: 0.7rem;
+    padding: 3px 7px;
+    border-radius: 0px;
+    font-weight: bold;
+    display: inline-block;
+    border-radius: 8px;
+}

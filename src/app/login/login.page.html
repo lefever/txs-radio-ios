@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Ingresar
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <img class="logo" src="assets/svg/logo.svg" width="70%">
+       
+  <div *ngIf="!user" >
+    
+    <h4 style="text-align: center;">Ingresa con tus redes sociales</h4>
+    <br>
+    <ion-button color="tertiary" expand="full"(click)="signInWithOAuth('Facebook')">
+      <ion-icon slot="start" name="logo-facebook"></ion-icon>
+      Ingresar con Facebook
+    </ion-button>
+    <ion-button color="danger" expand="full"(click)="signInWithOAuth('Google')">
+      <ion-icon slot="start" name="logo-googleplus"></ion-icon>
+      Ingresar con Google
+    </ion-button>
+  </div>
+
+  <div *ngIf="user" >
+      <p>Email: {{email}}</p>
+      <form [formGroup]="settingsForm" (ngSubmit)="updateUserSettings()">
+        <ion-list>
+          <ion-item>
+            <ion-label position="stacked">Nombre</ion-label>
+            <ion-input type="text" formControlName="fullName"></ion-input>
+          </ion-item>
+          <ion-item class="form-error-list" *ngIf="!userFormBuilder.controls.fullName.pristine && !userFormBuilder.controls.fullName.valid">
+            <p class="form-error" item-right *ngIf="!userFormBuilder.controls.fullName.pristine && userFormBuilder.controls.fullName.hasError('required')">
+              Este campo no puede estar vacío.
+            </p>
+          </ion-item>
+        </ion-list>
+        <ion-button type="submit" expand="full" color="light" [disabled]="settingsForm.valid">Guardar cambios</ion-button>
+      </form>
+    
+      <ion-button expand="full" color="primary" (click)="signOut()">Desconectar</ion-button>
+  </div>
+</ion-content>

@@ -1,0 +1,120 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Cápsulas</ion-title>
+    <ion-buttons slot="start">
+      <ion-button [routerLink]="'/capsulas'" routerDirection="backward">
+        <ion-icon name="arrow-round-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-img *ngIf="!progImage" src="../../assets/imgs/covers/placeholder.jpg"></ion-img>
+  <ion-img *ngIf="progImage" [src]="progImage"></ion-img>
+  <ion-list *ngIf="!capsulasList">
+    <ion-item>
+      <ion-avatar slot="start">
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </ion-avatar>
+      <ion-label>
+        <h3>
+          <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+        </h3>
+        <p>
+          <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+        </p>
+        <p>
+          <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+        </p>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-avatar slot="start">
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </ion-avatar>
+      <ion-label>
+        <h3>
+          <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+        </h3>
+        <p>
+          <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+        </p>
+        <p>
+          <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+        </p>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-avatar slot="start">
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </ion-avatar>
+      <ion-label>
+        <h3>
+          <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+        </h3>
+        <p>
+          <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+        </p>
+        <p>
+          <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+        </p>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-avatar slot="start">
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </ion-avatar>
+      <ion-label>
+        <h3>
+          <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+        </h3>
+        <p>
+          <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+        </p>
+        <p>
+          <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+        </p>
+      </ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-avatar slot="start">
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </ion-avatar>
+      <ion-label>
+        <h3>
+          <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+        </h3>
+        <p>
+          <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+        </p>
+        <p>
+          <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+        </p>
+      </ion-label>
+    </ion-item>
+
+  </ion-list>
+
+  <ion-list *ngIf="capsulasList">
+    <ion-item class="capsulaItem" lines="full" *ngFor="let capsula of capsulasList">
+        <ion-icon (click)="play(capsula.audio, 'capsula', capsula._Titulo, capsula.id, progTitle, progImage)"
+        name="play" class="playerBtnSingle" item-left
+        *ngIf="playerStatus === 'Detenido' || currentId !== capsula.id || streamType !== 'capsula' || playerStatus === 'Paused'"></ion-icon>
+      <ion-icon name="refresh" class="rotate playerBtnSingle" item-left
+        *ngIf="currentId === capsula.id && playerStatus === 'Cargando'"></ion-icon>
+        <ion-icon (click)="stop()" name="square" class="playerBtnSingle" item-left
+        *ngIf="playerStatus === 'Live' && !paused && currentId === capsula.id && streamType === 'capsula'"></ion-icon>
+      <ion-label>
+        <h3>{{capsula._Titulo}}</h3>
+        <p class=desc>{{capsula.descripcion}}</p>
+        <p *ngIf="capsula.invitados">Invitados: {{capsula.invitados}}</p>
+      </ion-label>
+      <ion-icon name="more" (click)="presentActionSheet(capsula.audio, 'capsula', capsula._Titulo, capsula.id, progTitle, progImage)"></ion-icon>
+    </ion-item>
+  </ion-list>
+</ion-content>

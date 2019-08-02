@@ -1,0 +1,207 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Cápsulas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item lines="none" [routerLink]="['/capsula-player', 'lacienciadelrock']" routerDirection="forward">
+      <ion-thumbnail slot="start">
+        <img src="../../assets/imgs/covers/ciencia-del-rock.jpg">
+      </ion-thumbnail>
+      <ion-label>La Ciencia del Rock</ion-label>
+    </ion-item>
+    <ion-slides [options]="slideOpts">
+      <ion-slide *ngFor="let item of latestCienciaDelRock">
+        <div class="cover">
+          <img src="../../assets/svg/play-cover.svg" alt="">
+          <ion-icon (click)="play(item.audio, 'capsula', item._Titulo, item.id, 'La Ciencia del Rock', 'assets/imgs/covers/ciencia-del-rock.jpg')"
+            name="play" class="playerBtnSingle" item-left
+            *ngIf="playerStatus === 'Detenido' || currentId !== item.id || streamType !== 'capsula' || playerStatus === 'Paused'"></ion-icon>
+          <ion-icon name="refresh" class="rotate playerBtnSingle" item-left
+            *ngIf="currentId === item.id && playerStatus === 'Cargando'"></ion-icon>
+          <ion-icon (click)="stop()" name="square" class="playerBtnSingle" item-left
+            *ngIf="playerStatus === 'Live' && !paused && currentId === item.id && streamType === 'capsula'"></ion-icon>
+        </div>
+        <p class="title"><strong>{{item._Titulo}}</strong></p>
+      </ion-slide>
+      <ion-slide>
+        <div class="cover">
+          <img src="../../assets/svg/todos-cover.svg" alt="" [routerLink]="['/capsula-player', 'lacienciadelrock']" routerDirection="forward">
+        </div>
+      </ion-slide>
+    </ion-slides>
+
+    <ion-item lines="none" [routerLink]="['/capsula-player', 'widefense']" routerDirection="forward">
+      <ion-thumbnail slot="start">
+        <img src="../../assets/imgs/covers/widefense.jpg">
+      </ion-thumbnail>
+      <ion-label>Widefense</ion-label>
+    </ion-item>
+    <ion-slides [options]="slideOpts">
+      <ion-slide *ngFor="let item of latestWidefense">
+        <div class="cover">
+          <img src="../../assets/svg/play-cover.svg" alt="">
+          <ion-icon (click)="play(item.audio, 'capsula', item._Titulo, item.id, 'Widefense', 'assets/imgs/covers/widefense.jpg')"
+            name="play" class="playerBtnSingle" item-left
+            *ngIf="playerStatus === 'Detenido' || currentId !== item.id || streamType !== 'capsula' || playerStatus === 'Paused'"></ion-icon>
+          <ion-icon name="refresh" class="rotate playerBtnSingle" item-left
+            *ngIf="currentId === item.id && playerStatus === 'Cargando'"></ion-icon>
+          <ion-icon (click)="stop()" name="square" class="playerBtnSingle" item-left
+            *ngIf="playerStatus === 'Live' && !paused && currentId === item.id && streamType === 'capsula'"></ion-icon>
+        </div>
+        <p class="title"><strong>{{item._Titulo}}</strong></p>
+      </ion-slide>
+      <ion-slide>
+        <div class="cover">
+          <img src="../../assets/svg/todos-cover.svg" alt="" [routerLink]="['/capsula-player', 'widefense']" routerDirection="forward">
+        </div>
+        <p> <small></small></p>
+      </ion-slide>
+    </ion-slides>
+
+    <ion-item lines="none" [routerLink]="['/capsula-player', 'desafiolatam']" routerDirection="forward">
+      <ion-thumbnail slot="start">
+        <img src="../../assets/imgs/covers/desafio-latam.jpg">
+      </ion-thumbnail>
+      <ion-label>Desafío Latam</ion-label>
+    </ion-item>
+    <ion-slides [options]="slideOpts">
+      <ion-slide *ngFor="let item of latestDesafioLatam">
+        <div class="cover">
+          <img src="../../assets/svg/play-cover.svg" alt="">
+          <ion-icon (click)="play(item.audio, 'capsula', item._Titulo, item.id, 'Desafío Latam', 'assets/imgs/covers/desafio-latam.jpg')"
+            name="play" class="playerBtnSingle" item-left
+            *ngIf="playerStatus === 'Detenido' || currentId !== item.id || streamType !== 'capsula' || playerStatus === 'Paused'"></ion-icon>
+          <ion-icon name="refresh" class="rotate playerBtnSingle" item-left
+            *ngIf="currentId === item.id && playerStatus === 'Cargando'"></ion-icon>
+          <ion-icon (click)="stop()" name="square" class="playerBtnSingle" item-left
+            *ngIf="playerStatus === 'Live' && !paused && currentId === item.id && streamType === 'capsula'"></ion-icon>
+        </div>
+        <p class="title"><strong>{{item._Titulo}}</strong></p>
+      </ion-slide>
+      <ion-slide>
+        <div class="cover">
+          <img src="../../assets/svg/todos-cover.svg" alt="" [routerLink]="['/capsula-player', 'desafiolatam']" routerDirection="forward">
+        </div>
+        <p> <small></small></p>
+      </ion-slide>
+    </ion-slides>
+
+    <ion-item lines="none" [routerLink]="['/capsula-player', 'clubcienciaschile']" routerDirection="forward">
+      <ion-thumbnail slot="start">
+        <img src="../../assets/imgs/covers/ccc.jpg">
+      </ion-thumbnail>
+      <ion-label>Club de Ciencias Chile</ion-label>
+    </ion-item>
+    <ion-slides [options]="slideOpts">
+      <ion-slide *ngFor="let item of latestClubCienciasChile">
+        <div class="cover">
+          <img src="../../assets/svg/play-cover.svg" alt="">
+          <ion-icon (click)="play(item.audio, 'capsula', item._Titulo, item.id, 'Club de Ciencias Chile', 'assets/imgs/covers/ccc.jpg')"
+            name="play" class="playerBtnSingle" item-left
+            *ngIf="playerStatus === 'Detenido' || currentId !== item.id || streamType !== 'capsula' || playerStatus === 'Paused'"></ion-icon>
+          <ion-icon name="refresh" class="rotate playerBtnSingle" item-left
+            *ngIf="currentId === item.id && playerStatus === 'Cargando'"></ion-icon>
+          <ion-icon (click)="stop()" name="square" class="playerBtnSingle" item-left
+            *ngIf="playerStatus === 'Live' && !paused && currentId === item.id && streamType === 'capsula'"></ion-icon>
+        </div>
+        <p class="title"><strong>{{item._Titulo}}</strong></p>
+      </ion-slide>
+      <ion-slide>
+        <div class="cover">
+          <img src="../../assets/svg/todos-cover.svg" alt="" [routerLink]="['/capsula-player', 'clubcienciaschile']" routerDirection="forward">
+        </div>
+        <p> <small></small></p>
+      </ion-slide>
+    </ion-slides>
+
+    <ion-item lines="none" [routerLink]="['/capsula-player', 'redi']" routerDirection="forward">
+      <ion-thumbnail slot="start">
+        <img src="../../assets/imgs/covers/ari.jpg">
+      </ion-thumbnail>
+      <ion-label>Red de Investigadoras</ion-label>
+    </ion-item>
+    <ion-slides [options]="slideOpts">
+      <ion-slide *ngFor="let item of latestAsociacionInvestigadoras">
+        <div class="cover">
+          <img src="../../assets/svg/play-cover.svg" alt="">
+          <ion-icon (click)="play(item.audio, 'capsula', item._Titulo, item.id, 'Red de Investigadoras', 'assets/imgs/covers/ari.jpg')"
+            name="play" class="playerBtnSingle" item-left
+            *ngIf="playerStatus === 'Detenido' || currentId !== item.id || streamType !== 'capsula' || playerStatus === 'Paused'"></ion-icon>
+          <ion-icon name="refresh" class="rotate playerBtnSingle" item-left
+            *ngIf="currentId === item.id && playerStatus === 'Cargando'"></ion-icon>
+          <ion-icon (click)="stop()" name="square" class="playerBtnSingle" item-left
+            *ngIf="playerStatus === 'Live' && !paused && currentId === item.id && streamType === 'capsula'"></ion-icon>
+        </div>
+        <p class="title"><strong>{{item._Titulo}}</strong></p>
+      </ion-slide>
+      <ion-slide>
+        <div class="cover">
+          <img src="../../assets/svg/todos-cover.svg" alt="" [routerLink]="['/capsula-player', 'redi']" routerDirection="forward">
+        </div>
+        <p> <small></small></p>
+      </ion-slide>
+    </ion-slides>
+
+    <ion-item lines="none" [routerLink]="['/capsula-player', 'chilecientifico']" routerDirection="forward">
+      <ion-thumbnail slot="start">
+        <img src="../../assets/imgs/covers/chilecientifico.jpg">
+      </ion-thumbnail>
+      <ion-label>Chile Científico</ion-label>
+    </ion-item>
+    <ion-slides [options]="slideOpts">
+      <ion-slide *ngFor="let item of latestChileCientifico">
+        <div class="cover">
+          <img src="../../assets/svg/play-cover.svg" alt="">
+          <ion-icon (click)="play(item.audio, 'capsula', item._Titulo, item.id, 'Chile Científico', 'assets/imgs/covers/chilecientifico.jpg')"
+            name="play" class="playerBtnSingle" item-left
+            *ngIf="playerStatus === 'Detenido' || currentId !== item.id || streamType !== 'capsula' || playerStatus === 'Paused'"></ion-icon>
+          <ion-icon name="refresh" class="rotate playerBtnSingle" item-left
+            *ngIf="currentId === item.id && playerStatus === 'Cargando'"></ion-icon>
+          <ion-icon (click)="stop()" name="square" class="playerBtnSingle" item-left
+            *ngIf="playerStatus === 'Live' && !paused && currentId === item.id && streamType === 'capsula'"></ion-icon>
+        </div>
+        <p class="title"><strong>{{item._Titulo}}</strong></p>
+      </ion-slide>
+      <ion-slide>
+        <div class="cover">
+          <img src="../../assets/svg/todos-cover.svg" alt="" [routerLink]="['/capsula-player', 'chilecientifico']" routerDirection="forward">
+        </div>
+        <p> <small></small></p>
+      </ion-slide>
+    </ion-slides>
+
+    <ion-item lines="none" [routerLink]="['/capsula-player', 'cchen']" routerDirection="forward">
+      <ion-thumbnail slot="start">
+        <img src="../../assets/imgs/covers/cchen.jpg">
+      </ion-thumbnail>
+      <ion-label>Comisión Chilena de Energía Nuclear</ion-label>
+    </ion-item>
+    <ion-slides [options]="slideOpts">
+        <ion-slide *ngFor="let item of latestComisionChilenaEnergia">
+          <div class="cover">
+            <img src="../../assets/svg/play-cover.svg" alt="">
+            <ion-icon (click)="play(item.audio, 'capsula', item._Titulo, item.id, 'Comisión Chilena de Energía Nuclear', 'assets/imgs/covers/cchen.jpg')"
+            name="play" class="playerBtnSingle" item-left
+            *ngIf="playerStatus === 'Detenido' || currentId !== item.id || streamType !== 'capsula' || playerStatus === 'Paused'"></ion-icon>
+          <ion-icon name="refresh" class="rotate playerBtnSingle" item-left
+            *ngIf="currentId === item.id && playerStatus === 'Cargando'"></ion-icon>
+          <ion-icon (click)="stop()" name="square" class="playerBtnSingle" item-left
+            *ngIf="playerStatus === 'Live' && !paused && currentId === item.id && streamType === 'capsula'"></ion-icon>
+          </div>
+          <p class="title"><strong>{{item._Titulo}}</strong></p>
+        </ion-slide>
+        <ion-slide>
+          <div class="cover">
+            <img src="../../assets/svg/todos-cover.svg" alt="" [routerLink]="['/capsula-player', 'cchen']" routerDirection="forward">
+          </div>
+          <p> <small></small></p>
+        </ion-slide>
+      </ion-slides>
+  </ion-list>
+</ion-content>
